@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  nominatim:
+     build: .
+     ports:
+       - 6432:5432
+       - 7070:8080
+     container_name: nominatim
+     volumes:
+       - /home/ubuntu/nominatim_data/postgresdata:/var/lib/postgresql/12/main
+     restart: always
+     command: bash /app/start.sh
